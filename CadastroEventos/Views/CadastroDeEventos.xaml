@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CadastroEventos.Views.CadastroDeEventos"
+             Title="CadastroDeEventos">
+            
+    <VerticalStackLayout Spacing="10"
+                         Padding="20">
+        <Label Text="Nome do evento: "/>
+        <Entry x:Name="entry_evento"/>
+
+        <Grid RowDefinitions="*, *"
+              ColumnDefinitions="*, *"
+              RowSpacing="10">
+            <Label Text="Data de Inicio: "
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+            <DatePicker x:Name="dtpck_inicio"
+                        DateSelected="Dtpck_inicio_DateSelected"
+                        Format="dd/MM/yyyy"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalOptions="End"/>
+
+            <Label Text="Data de Término: "
+                       Grid.Row="1"
+                       Grid.Column="0"/>
+            <DatePicker x:Name="dtpck_termino"
+                        Format="dd/MM/yyyy"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="End"/>
+        </Grid>
+
+        <Grid RowDefinitions="*"
+              ColumnDefinitions="2*, auto, auto"
+              ColumnSpacing="10">
+            <Label Text="Número de participantes: "
+                   LineBreakMode="NoWrap"
+                   Grid.Column="0"/>
+            <Label Grid.Column="1"
+                   HorizontalOptions="End"
+                   Text="{Binding Value}"
+                   BindingContext="{x:Reference stp_participantes}"/>
+            <Stepper x:Name="stp_participantes"
+                     Grid.Column="2"
+                     HorizontalOptions="End"
+                     Minimum="0"
+                     Increment="1"/>
+        </Grid>
+        
+
+        <Label Text="Local do evento: "/>
+        <Entry x:Name="entry_local"/>
+
+        <Label Text="Custo por participante:"/>
+        <Entry  Keyboard="Numeric"
+                x:Name="entry_custo"/>
+
+        <Button Clicked="Cadastrar_Clicked"
+                Text="Cadastrar"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CadastroEventos.Views.EventoCadastrado"
+             Title="EventoCadastrado">
+    <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
+        <Label Text="{Binding NomeEvento}"
+               HorizontalOptions="Center"/>
+        <Border Padding="10"
+                Stroke="Black"
+                StrokeShape="RoundRectangle 10"
+                Background="Black">
+            <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+                
+
+                <Grid RowDefinitions="*, *" ColumnDefinitions="auto, auto" ColumnSpacing="10">
+                    <Label Grid.Column="0"
+                           Text="Data Inicio:"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Text="{Binding DataInicio, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                    
+                    <Label Grid.Column="1"
+                           Text="Data Termino:"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding DataTermino, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                </Grid>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="local: "/>
+                            <Span Text="{Binding Local}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Número de Participantes: "/>
+                            <Span Text="{Binding NumeroParticipantes}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Valor Total: "/>
+                            <Span Text="{Binding ValorTotal}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+        </Border>
+
+    </VerticalStackLayout>
+</ContentPage>
