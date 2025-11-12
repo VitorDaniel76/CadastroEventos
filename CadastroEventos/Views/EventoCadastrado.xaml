@@ -5,6 +5,7 @@
              Title="EventoCadastrado">
     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
         <Label Text="{Binding NomeEvento}"
+               FontSize="30"
                HorizontalOptions="Center"/>
         <Border Padding="10"
                 Stroke="Black"
@@ -13,7 +14,7 @@
             <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
                 
 
-                <Grid RowDefinitions="*, *" ColumnDefinitions="auto, auto" ColumnSpacing="10">
+                <Grid RowDefinitions="*, *" ColumnDefinitions="auto, auto" ColumnSpacing="50">
                     <Label Grid.Column="0"
                            Text="Data Inicio:"/>
                     <Label Grid.Row="1"
@@ -27,32 +28,38 @@
                            Text="{Binding DataTermino, StringFormat='{}{0:dd/MM/yyyy}'}"/>
                 </Grid>
 
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="local: "/>
-                            <Span Text="{Binding Local}"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <Border Stroke="Black">
+                    <VerticalStackLayout>
+                        <Label HorizontalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="local: "/>
+                                    <Span Text="{Binding Local}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Número de Participantes: "/>
-                            <Span Text="{Binding NumeroParticipantes}"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                        <Label HorizontalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Número de Participantes: "/>
+                                    <Span Text="{Binding NumeroParticipantes}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Valor Total: "/>
-                            <Span Text="{Binding ValorTotal}"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                        <Label HorizontalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Valor Total: "/>
+                                    <Span Text="{Binding ValorTotal, StringFormat='{}{0:c}'}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+
+                </Border>
+                    
             </VerticalStackLayout>
         </Border>
 
